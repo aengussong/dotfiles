@@ -1,0 +1,83 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 35,
+    "margin-top": 5,
+    "margin-bottom": 10,
+
+    // Choose the order of the modules
+
+    "modules-center": ["sway/mode", "sway/workspaces","pulseaudio", "network", "cpu", "memory","keyboard-state", "sway/language","tray", "clock"],
+
+    // Modules configuration
+
+     "sway/workspaces": {
+         "disable-scroll": true,
+         "all-outputs": false,
+         "format": "{name}"
+    },
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "format": " {name} {icon}",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "tray": {
+        "icon-size": 20,
+        "spacing": 10
+    },
+    "clock": {
+        "format": "{:%H:%M %a | %d.%m.%y}  ",
+	"on-click": "gnome-calendar"
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "{}% "
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "Connected  ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "on-click-right": "bash ~/.config/rofi/wifi_menu/rofi_wifi_menu"
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon}",
+        "format-bluetooth": "{volume}% {icon}",
+        "format-bluetooth-muted": "{icon} {format_source}",
+        "format-muted": "{format_source}",
+        "format-source": "",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    }
+}
+
